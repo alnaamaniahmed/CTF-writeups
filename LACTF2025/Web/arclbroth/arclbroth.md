@@ -22,12 +22,14 @@ In this challenge, the goal was to brew a flag by exploiting vulnerabilities in 
    - **Username:** `admin\u0000hax`
    - **Password:** `password`
 
+   I noticed that the website automatically added an extra escape character, changing the username to `admin\\u0000hax`
+
    ![Intercepting the Registration Request Screenshot](./exploit1.png)
 
 2. **Correcting the Payload:**
 
-   When I intercepted the request, I noticed that the website automatically added an extra escape character, changing the username to `admin\\u0000hax`. Before forwarding the request, I edited the payload back to:
-
+   Before forwarding the request, I edited the payload back to:
+   
    ```json
    {"username": "admin\u0000hax", "password": "password"}
    ```
