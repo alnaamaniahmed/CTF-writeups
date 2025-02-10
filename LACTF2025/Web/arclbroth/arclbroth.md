@@ -15,30 +15,34 @@ In this challenge, the goal was to brew a flag by exploiting vulnerabilities in 
 
 ## Exploitation steps
 
-1. **Intercepting the Registration Request:**  
+1. **Intercepting the Registration Request:**
+
    I used Burp Suite to intercept the registration request. I attempted to register with the following credentials:
+
    - **Username:** `admin\u0000hax`
    - **Password:** `password`
-   
+
    ![Intercepting the Registration Request Screenshot](./exploit1.png)
 
-2. **Correcting the Payload:**  
+2. **Correcting the Payload:**
+
    When I intercepted the request, I noticed that the website automatically added an extra escape character, changing the username to `admin\\u0000hax`. Before forwarding the request, I edited the payload back to:
+
    ```json
    {"username": "admin\u0000hax", "password": "password"}
    ```
    ![Correcting the Payload Screenshot](./requestModification.png)
-3. **Logging in as Admin:**  
+3. **Logging in as Admin:**
+
    After registering with the credentials above, the server processed the username as admin (since SQLite stops at the null byte), then I was logged in as admin and granted 100 arcs.
    <br><br>
    ![Logging in as Admin Screenshot](./100_arcs.png)
-4. **Brewing the flag:**  
-   Finally, I clicked the "brew" button. With 100 arcs available, the system deducted 50 arcs and returned the flag in the response: `lactf{bulri3v3_it_0r_n0t_s3cur3_sqlit3_w4s_n0t_s3cur3}`
+4. **Brewing the flag:**
+  
+   Finally, I clicked the "brew" button. With 100 arcs available, the system deducted 50 arcs and returned the flag in the response:
+    `lactf{bulri3v3_it_0r_n0t_s3cur3_sqlit3_w4s_n0t_s3cur3}`
     <br><br>
    ![Brewing the Flag Screenshot](./flagPic.png)
-
-
-
 
 <br><br>
 <div align="center">
