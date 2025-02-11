@@ -48,7 +48,7 @@ Arclbroth is a web-game-based challenge where your objective is to brew a flag u
 
 <br><br>
 <div align="center">
-  <strong>Sincerely yours,</strong><br>
+  <strong>Sincerely yours (Aura 1000+),</strong><br>
   <strong>Ahmed Al-Naamani (C00k1eSn4tch3r)</strong>
 </div>
 
