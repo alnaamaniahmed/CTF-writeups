@@ -5,7 +5,7 @@
 ![Challenge Screenshot](./challenge.png)
 ## Overview
 
-In this challenge, the goal was to brew a flag by exploiting vulnerabilities in a web application built with Express and SQLite. The application allowed users to register, log in, replenish their "arcs", and brew them into a broth that held the flag. However, only an admin (with 100 arcs) could brew the flag. Normal users only started with 10 arcs.
+Arclbroth is a web-game-based challenge where your objective is to brew a flag using "arcs" as your currency. Regular users start with just 10 arcs which is too few to meet the 50-arc threshold required to brew the flag while the admin account is automatically granted 100 arcs. Normally, the username "admin" is reserved and protected against duplicate registrations. However, by exploiting a null byte injection vulnerability during registration, I managed to bypass this restriction and register as the admin then voila I got the flag :)
 
 
 ## Vulnerability
@@ -13,7 +13,7 @@ In this challenge, the goal was to brew a flag by exploiting vulnerabilities in 
 **Null Byte Injection in Registration:** By injecting a null byte into the username, I was able to bypass the duplicate check.
 
 
-## Exploitation steps
+## Exploitation
 
 1. **Intercepting the Registration Request:**
 
